@@ -176,7 +176,7 @@
             },
             title: {
                 display: true,
-                text: `Total aset: ${totalAset}`
+                text: `Jumlah aset: ${totalAset}`
             },
             scales: {
                     yAxes: [{

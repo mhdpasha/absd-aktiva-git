@@ -93,6 +93,37 @@
                         </div>
                     </card-background>
 
+                    <h1 class="h3 mb-2 text-gray-800">Request</h1>
+                    <p></p>
+                    <p></p>
+
+                    <card-background class="card shadow mb-4" data-aos="fade-down" data-aos-delay="100" data-aos-duration="800">
+                        
+                        <form class="mt-3">
+                            <section class="row px-4 mt-3">
+                                <div class="col">
+                                    <label for="exampleInputNamaBarang">Nama Barang <span style="color: red;">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Input nama barang">
+                                  </div>
+                                <div class="col">
+                                    <label for="exampleInputKeterangan">Keterangan <span style="color: red;">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Input keterangan">
+                                </div>
+                            </section>
+                            <section class="row mx-4 mt-3">
+                                <label for="exampleInputUser">User <span style="color: red;">*</span></label>
+                                <select class="form-control">
+                                    <option value=" {{ $user }} "> {{ $user }} </option>
+                                </select>
+                            </section> 
+                        </form> 
+                        
+                        <div class="form-group px-4 mt-4 mb-5">
+                            <button type="submit" class="btn btn-primary px-5">Submit</button>
+                        </div>
+
+                    </card-background>
+
                     @else
                     <h1 class="h3 mb-2 text-gray-800">Request</h1>
                     <p></p>
