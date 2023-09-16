@@ -29,7 +29,7 @@ class AsetController extends Controller
         ]);
     }
 
-    public function storeAset(Request $request)
+    public function storeAset(Request $request, Aset $aset)
     {
         $validated = $request->validate([
             'category' => 'required',

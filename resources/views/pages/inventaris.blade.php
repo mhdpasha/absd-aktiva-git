@@ -61,7 +61,7 @@
                                                             <div class="modal-body" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
                                                                 <div class="form-group">
                                                                     <label for="exampleInputCodeBarang">Jenis Aset</label>
-                                                                    <select class="form-control" name="itemcode" id="itemcode">
+                                                                    <select class="form-select" name="itemcode" id="itemcode">
                                                                         <option value="{{ $data->itemcode }}" selected> {{ $data->itemcode }} (Selected)</option>
                                                                             @foreach ($itemInventaris as $item)
                                                                                 <option value="{{ $item->kodeAset." - ".$item->jenisAset }}">{{ $item->kodeAset." - ".$item->jenisAset }}</option>
@@ -75,7 +75,7 @@
                                                 
                                                                 <div class="form-group mt-2" style="width: 100%;">
                                                                     <label for="exampleInputCodeBarang">Kategori Aset</label>
-                                                                    <select class="form-control" name="category" id="isFurniture">
+                                                                    <select class="form-select" name="category" id="isFurniture">
                                                                         <option value="{{ $data->category }}"> {{ $data->category }} (Selected)</option>
                                                                         <option value="G - Gedung & Bangunan">G - Gedung & Bangunan</option>
                                                                         <option value="K - KBM Operasional">K - KBM Operasional</option>

@@ -48,4 +48,8 @@ Route::controller(ItemController::class)->group(function () {
 
 Route::controller(ItemRequestController::class)->group(function() {
     Route::get('/request', 'displayRequest');
+    Route::post('tambah-request', 'storeRequest')->name('tambah.request');
+    Route::post('delete-request', 'deleteRequest')->name('delete.request');
+    Route::post('accept-request', 'acceptRequest')->name('accept.request');
+    Route::post('reject-request', 'rejectRequest')->name('reject.request');
 });

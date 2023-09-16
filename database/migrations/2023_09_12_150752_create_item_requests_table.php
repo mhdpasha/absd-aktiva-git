@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('user');
             $table->text('description');
             $table->boolean('isFurniture');
-            $table->boolean('isHistory');
-            $table->boolean('status');
-            $table->date('date');
+            $table->boolean('isHistory')->nullable();
+            $table->boolean('status')->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }

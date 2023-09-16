@@ -12,7 +12,7 @@
             <div class="modal-body" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
                 <div class="form-group">
                     <label for="exampleInputCodeBarang">Jenis Aset <span style="color: red;">*</span></label>
-                    <select class="form-control" name="itemcode" id="itemcode">
+                    <select class="form-select" name="itemcode" id="itemcode">
                         @if ($title == "Inventaris")
                             @foreach ($itemInventaris as $item)
                                 <option value="{{ $item->kodeAset." - ".$item->jenisAset }}">{{ $item->kodeAset." - ".$item->jenisAset }}</option>
@@ -36,7 +36,7 @@
 
                 <div class="form-group" style="width: 100%;">
                     <label for="exampleInputCodeBarang">Kategori Aset <span style="color: red;">*</span></label>
-                    <select class="form-control" name="category" id="isFurniture">
+                    <select class="form-select" name="category" id="isFurniture">
                         <option value="G - Gedung & Bangunan">G - Gedung & Bangunan</option>
                         <option value="K - KBM Operasional">K - KBM Operasional</option>
                         <option value="P - Peralatan & Perlengkapan">P - Peralatan & Perlengkapan</option>
