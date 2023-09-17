@@ -352,5 +352,33 @@
     <!-- End of Page Wrapper -->
 
     <script src="{{ asset('js/alert.js') }}"></script>
+    <style>
+        .dt-button {
+            border: none;
+            margin-top: 20px;
+            border-radius: 20px;
+            padding: 10px 20px; 
+        }
+
+        .dt-button-collection button {
+            position: absolute;
+            color: white;
+            background: #adb5bd;
+            top: 18px;
+        }
+
+        .dt-button-collection button:nth-child(1) {
+            left: 400px
+        }
+        .dt-button-collection button:nth-child(2) {
+            left: 505px
+        }
+        .dt-button-collection button:nth-child(3) {
+            left: 610px
+        }
+        .dt-button-collection button:nth-child(4) {
+            left: 715px
+        }
+    </style>
     
 @endsection
