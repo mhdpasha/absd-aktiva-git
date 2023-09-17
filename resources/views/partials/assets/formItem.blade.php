@@ -22,10 +22,10 @@
                         <input class="form-control" type="text" name="jenisAset" autocomplete="off">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" style="width: 100%">
                     <div>
                         <label for="kodeAset">Kategori Aset</label>
-                        <select class="form-control" name="isFurniture">
+                        <select class="form-select" name="isFurniture">
                             <option value="0">Inventaris</option>
                             <option value="1">Furniture</option>
                         </select>
