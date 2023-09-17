@@ -15,11 +15,13 @@ class ItemRequestController extends Controller
     {
         return view('pages.request', [
             "title" => "Request",
-            "user" => "admin",
+            "user" => "Admin",
             "status" => "accepted",
+            "dataItem" => Item::all(),
             "request" => ItemRequest::where('isHistory', 0)->get(),
             "history" => ItemRequest::where('isHistory', 1)->get(),
-            "dataItem" => Item::all()
+            "dataRequest" => ItemRequest::where('isHistory', 0)->count(),
+            "requestAll" => ItemRequest::all()
         ]);
     }
 
@@ -41,7 +43,7 @@ class ItemRequestController extends Controller
         return redirect('/request')->with('added', 'Request '.$request->name.' berhasil ditambahkan');
     }
 
-    public function acceptRequest(Request $request, ItemRequest $itemReq)
+    public function acceptRequest(Request $request)
     {
         
         $data = ItemRequest::find($request->id);

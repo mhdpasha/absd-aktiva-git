@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main', ['notification' => $dataRequest, 'caption' => $request])
 @section('content')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -101,9 +101,6 @@
                                                         </div>
                                                     </div>
                                                 </form>
-
-
-
                                                 <a type="button" data-bs-toggle="modal" data-bs-target="#showQR{{ $data->id }}" class="btn btn-primary btn-sm">
                                                     <img src={{ asset("img/Vector.png") }} width="20px" height="19px">
                                                 </a>
@@ -128,8 +125,6 @@
                                         
                                     </tbody>
                                 </table>
-
-
                                 @if ($errors->any())
                                     <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
                                         <h4><strong>Field belum terisi :</strong></h4>

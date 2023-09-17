@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Aset;
 use App\Models\Item;
+use App\Models\ItemRequest;
+
 
 class AsetController extends Controller
 {
@@ -15,7 +17,9 @@ class AsetController extends Controller
             "title" => "Inventaris",
             "aset" => Aset::where('isFurniture', 0)->get(),
             "itemInventaris" => Item::where('isFurniture', 0)->get(),
-            "itemFurniture" => Item::where('isFurniture', 1)->get()
+            "itemFurniture" => Item::where('isFurniture', 1)->get(),
+            "dataRequest" => ItemRequest::where('isHistory', 0)->count(),
+            "request" => ItemRequest::where('isHistory', 0)->get()
         ]);
     }
 
@@ -25,7 +29,9 @@ class AsetController extends Controller
             "title" => "Furniture",
             "aset" => Aset::where('isFurniture', 1)->get(),
             "itemInventaris" => Item::where('isFurniture', 0)->get(),
-            "itemFurniture" => Item::where('isFurniture', 1)->get()
+            "itemFurniture" => Item::where('isFurniture', 1)->get(),
+            "dataRequest" => ItemRequest::where('isHistory', 0)->count(),
+            "request" => ItemRequest::where('isHistory', 0)->get()
         ]);
     }
 

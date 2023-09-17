@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main', ['notification' => $dataRequest, 'caption' => $requestAll])
 @section('content')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -33,7 +33,7 @@
                             @endif
 
 
-                    @if ($user == 'admin')
+                    @if ($user == 'Admin')
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Incoming Request</h1>
                     <p></p>
@@ -64,7 +64,7 @@
                                             <td> {{ $data->category }} </td>
                                             <td> {{ $data->itemcode }} </td>
                                             <td> {{ $data->name }} </td>
-                                            <td> {{ $data->user }} </td>
+                                            <td><strong> {{ $data->user }} </strong></td>
                                             <td> {{ $data->description }} </td>
                                             <td><span class="badge text-bg-warning px-3">Pending</span></td>
                                             <td class="d-flex justify-content-center">
@@ -124,7 +124,7 @@
                                             <td> {{ $data->category }} </td>
                                             <td> {{ $data->itemcode }} </td>
                                             <td> {{ $data->name }} </td>
-                                            <td> {{ $data->user }} </td>
+                                            <td><strong> {{ $data->user }} </strong></td>
                                             <td> {{ $data->description }} </td>
                                             @if ($data->status == 1) 
                                                 <td><span class="badge text-bg-success px-3">Accepted</span></td>
@@ -197,7 +197,7 @@
                                 {{-- hidden input --}}
                                 <input type="hidden" name="user" value="{{ $user }}">
                                 <input type="hidden" name="isHistory" value="0">
-                                <input type="hidden" name="status" value="0">
+                                <input type="hidden" name="status" value="1">
                             
                             <div class="form-group px-4 mt-4 mb-5">
                                 <button type="submit" class="btn btn-primary px-5">Submit</button>
@@ -279,7 +279,7 @@
                                 {{-- hidden input --}}
                                 <input type="hidden" name="user" value="{{ $user }}">
                                 <input type="hidden" name="isHistory" value="0">
-                                <input type="hidden" name="status" value="0">
+                                <input type="hidden" name="status" value="1">
                             
                             <div class="form-group px-4 mt-4 mb-5">
                                 <button type="submit" class="btn btn-primary px-5">Submit</button>
@@ -289,6 +289,51 @@
                         
 
                     </card-background>
+
+                    <h1 class="h3 mb-2 text-gray-800">History Request</h1>
+                    <p></p>
+                    <p></p>
+
+                    <card-background class="card shadow mb-5" data-aos="fade-down" data-aos-delay="0" data-aos-duration="800">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center" id="dataTable2" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Kategori Aset</th>
+                                            <th>Jenis Aset</th>
+                                            <th>Nama Aset</th>
+                                            <th>User</th>
+                                            <th>Keterangan</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach ($history as $data)
+                                        <tr>
+                                            <td> {{ $loop->iteration }} </td>
+                                            <td> {{ $data->category }} </td>
+                                            <td> {{ $data->itemcode }} </td>
+                                            <td> {{ $data->name }} </td>
+                                            <td> {{ $data->user }} </td>
+                                            <td> {{ $data->description }} </td>
+                                            @if ($data->status == 1) 
+                                                <td><span class="badge text-bg-success px-3">Accepted</span></td>
+                                            @else
+                                                <td><span class="badge text-bg-danger px-3">Rejected</span></td>
+                                            @endif
+
+                                        </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </card-background>
+
                     @endif
 
                     </div>

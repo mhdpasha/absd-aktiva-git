@@ -30,7 +30,7 @@
     <div id="wrapper">
         @include('partials.sidebar')        
         <div id="content-wrapper" class="d-flex flex-column">
-            @include('partials.topbar')
+            @include('partials.topbar', ['notification' => $notification, 'caption' => $caption])
             @yield('content')
         </div>
         

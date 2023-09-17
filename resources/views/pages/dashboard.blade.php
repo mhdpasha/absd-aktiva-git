@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main', ['notification' => $dataRequest, 'caption' => $request])
 
 @section('content')
         <!-- Content Wrapper -->

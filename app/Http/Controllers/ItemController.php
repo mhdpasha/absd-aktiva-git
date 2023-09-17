@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\ItemRequest;
+
 
 class ItemController extends Controller
 {
@@ -12,7 +14,9 @@ class ItemController extends Controller
         return view('pages.item', [
             "title" => "Item",
             "itemInventaris" => Item::where('isFurniture', 0)->get(),
-            "itemFurniture" => Item::where('isFurniture', 1)->get()
+            "itemFurniture" => Item::where('isFurniture', 1)->get(),
+            "dataRequest" => ItemRequest::where('isHistory', 0)->count(),
+            "request" => ItemRequest::where('isHistory', 0)->get()
         ]);
     }
 

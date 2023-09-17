@@ -21,7 +21,10 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">+1</span>
+                @if ($notification == 0)
+                @else
+                <span class="badge badge-danger badge-counter">+{{ $notification }}</span>
+                @endif
             </a>
             <!-- Dropdown - Alerts -->
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -29,30 +32,36 @@
                 <h6 class="dropdown-header">
                     Notification
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="{{ url("/request") }}">
-                    <div class="mr-3">
-                        <div class="icon-circle bg-primary">
-                            <i class="fas fa-file-alt text-white"></i>
+                @foreach ($caption as $caps)
+                    @if ($caps->status == 1 && $caps->isHistory == 0)
+                    <a class="dropdown-item d-flex align-items-center" href="{{ url("/request") }}">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-primary">
+                                <i class="fas fa-file-alt text-white"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="small text-gray-500">August 8, 2023</div>
-                        <span class="font-weight-bold">Muhamad Rifaldi Send A Something Request Pls Respond</span>
-                    </div>
-                </a>
+                        <div>
+                            <div class="small text-gray-500">{{ date('d M Y', strtotime($caps->created_at)) }}</div>
+                            <span class="font-weight-bold">{{ $caps->user }} sent a new request ({{ ($caps->isFurniture == 0) ? 'Inventaris' : 'Furniture' }})</span>
+                        </div>
+                    </a>
+                    @elseif ($caps->status == 0 && $caps->isHistory == 1)
+                    <a class="dropdown-item d-flex align-items-center" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-danger">
+                                <i class="fas fa-exclamation text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">{{ date('d M Y', strtotime($caps->updated_at)) }}</div>
+                            <span class="font-weight-bold">Admin rejected your {{ $caps->name }} request</span>
+                        </div>
+                        
+                    </a>
+                    @endif
+                @endforeach
 
-                <a class="dropdown-item d-flex align-items-center" type="button" data-toggle="modal" data-target="#exampleModalCenter">
-                    <div class="mr-3">
-                        <div class="icon-circle bg-danger">
-                            <i class="fas fa-exclamation text-white"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="small text-gray-500">August 9, 2023</div>
-                        <span class="font-weight-bold">You Reject Muhamad Rifaldi Request</span>
-                    </div>
-                    
-                </a>
+                
                 
             </div>
         </li>

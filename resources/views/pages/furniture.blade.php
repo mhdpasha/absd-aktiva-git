@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main', ['notification' => $dataRequest, 'caption' => $request])
 @section('content')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
