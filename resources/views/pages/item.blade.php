@@ -4,12 +4,12 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Item Code</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Inventaris Code</h1>
                     <p></p>
                     <p></p>
 
                     <!-- Modal -->
-                    @include('partials.assets.formItem')
+                    @include('partials.assets.formItem', ["state" => "Inventaris" ])
 
                         <div class="card-body">
                             <div class="table-responsive">
@@ -83,10 +83,42 @@
                                     </tbody>
                                 </table>
 
-                                <br>
-                                <hr class="my-4" style="border: 1px solid rgba(0, 0, 0, 0.5); border-radius: 20px">
-                                <br>
+                                @if (session()->has('added'))
+                                    <div class="alert alert-success alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
+                                        <strong class="d-flex items-center justify-content-center">
+                                            {{ session('added') }}
+                                        </strong>
+                                    </div>
+                            @elseif (session()->has('saved'))
+                                    <div class="alert alert-primary alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
+                                        <strong class="d-flex items-center justify-content-center">
+                                            {{ session('saved') }}
+                                        </strong>
+                                    </div>
+                            @elseif (session()->has('deleted'))
+                                    <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
+                                        <strong class="d-flex items-center justify-content-center">
+                                            {{ session('deleted') }}
+                                        </strong>
+                                    </div>
+                            @endif
 
+                            </div>
+                        </div>
+                    </div>
+
+                                
+
+                                
+                            
+                    <h1 class="h3 mb-2 text-gray-800">Testing</h1>
+                    <p></p>
+                    <p></p>
+
+                    @include('partials.assets.formItem', ["state" => "furniture" ])
+
+                        <div class="card-body">
+                            <div class="table-responsive">
                                 <table class="table table-bordered text-center" id="dataTable2" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -156,32 +188,6 @@
 
                                     </tbody>
                                 </table>
-
-                                @if (session()->has('added'))
-                                    <div class="alert alert-success alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
-                                        <strong class="d-flex items-center justify-content-center">
-                                             {{ session('added') }}
-                                        </strong>
-                                    </div>
-                            @elseif (session()->has('saved'))
-                                    <div class="alert alert-primary alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
-                                        <strong class="d-flex items-center justify-content-center">
-                                             {{ session('saved') }}
-                                        </strong>
-                                    </div>
-                            @elseif (session()->has('deleted'))
-                                    <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
-                                        <strong class="d-flex items-center justify-content-center">
-                                             {{ session('deleted') }}
-                                        </strong>
-                                    </div>
-                            @endif
-
-                            </div>
-                        </div>
-                    </div>
-
-
             
 
 
