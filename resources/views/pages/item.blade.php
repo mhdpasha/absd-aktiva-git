@@ -13,7 +13,7 @@
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered text-center" id="dataTableMin" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th width="10px">No</th>

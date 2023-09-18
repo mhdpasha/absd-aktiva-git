@@ -6,6 +6,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ItemRequestController;
 use App\Http\Controllers\MaintenanceController;
+use App\Http\Controllers\AuthController;
 
 
 /*
@@ -19,12 +20,15 @@ use App\Http\Controllers\MaintenanceController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/', 'login')->name('login')->middleware('guest');
+    Route::post('/auth', 'register');
+    Route::post('/logout', 'logout');
 });
 
 Route::controller(DashboardController::class)->group(function() {
-    Route::get('/dashboard', 'display');
+    Route::get('/dashboard', 'displayDashboard');
+    Route::get('/user', 'displayUser');
 });
 
 Route::controller(AsetController::class)->group(function () {

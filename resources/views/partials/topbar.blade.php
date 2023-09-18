@@ -42,11 +42,11 @@
                         </div>
                         <div>
                             <div class="small text-gray-500">{{ date('d M Y', strtotime($caps->created_at)) }}</div>
-                            <span class="font-weight-bold">{{ $caps->user }} sent a new request ({{ ($caps->isFurniture == 0) ? 'Inventaris' : 'Furniture' }})</span>
+                            <span class="font-weight-bold">{{ $caps->user }} sent a new request ({{ ($caps->isFurniture == 0) ? 'Inventaris' : 'Furniture' }}) on pending</span>
                         </div>
                     </a>
                     @elseif ($caps->status == 0 && $caps->isHistory == 1)
-                    <a class="dropdown-item d-flex align-items-center" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+                    <a class="dropdown-item d-flex align-items-center" href="{{ url("/request") }}">
                         <div class="mr-3">
                             <div class="icon-circle bg-danger">
                                 <i class="fas fa-exclamation text-white"></i>
@@ -106,7 +106,7 @@
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="user.html">
+                <a class="dropdown-item" href="{{ url("/user") }}">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     User Manajemen
                 </a>

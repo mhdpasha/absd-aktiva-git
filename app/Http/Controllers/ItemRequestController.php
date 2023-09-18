@@ -13,15 +13,21 @@ class ItemRequestController extends Controller
 {
     public function displayRequest()
     {
+        $user = "Admin";
+
         return view('pages.request', [
             "title" => "Request",
-            "user" => "Admin",
-            "status" => "accepted",
+            "user" => $user,
             "dataItem" => Item::all(),
             "request" => ItemRequest::where('isHistory', 0)->get(),
-            "history" => ItemRequest::where('isHistory', 1)->get(),
+            "historyAdmin" => ItemRequest::where('isHistory', 1)->get(),
+            "historyUser" => ItemRequest::where([
+                'isHistory' => 1,
+                'user' => $user
+            ])->get(),
+
             "dataRequest" => ItemRequest::where('isHistory', 0)->count(),
-            "requestAll" => ItemRequest::all()
+            "request" => ItemRequest::where('isHistory', 0)->get()
         ]);
     }
 

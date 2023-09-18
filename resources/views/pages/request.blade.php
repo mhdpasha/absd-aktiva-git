@@ -1,4 +1,4 @@
-@extends('layouts.main', ['notification' => $dataRequest, 'caption' => $requestAll])
+@extends('layouts.main', ['notification' => $dataRequest, 'caption' => $request])
 @section('content')
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -66,7 +66,7 @@
                                             <td> {{ $data->name }} </td>
                                             <td><strong> {{ $data->user }} </strong></td>
                                             <td> {{ $data->description }} </td>
-                                            <td><span class="badge text-bg-warning px-3">Pending</span></td>
+                                            <td><span class="badge text-bg-warning px-3 py-2">Pending</span></td>
                                             <td class="d-flex justify-content-center">
                                                 <form action="{{ route('accept.request') }}" method="POST">
                                                     @csrf
@@ -118,7 +118,7 @@
                                     </thead>
                                     <tbody>
 
-                                        @foreach ($history as $data)
+                                        @foreach ($historyAdmin as $data)
                                         <tr>
                                             <td> {{ $loop->iteration }} </td>
                                             <td> {{ $data->category }} </td>
@@ -127,9 +127,9 @@
                                             <td><strong> {{ $data->user }} </strong></td>
                                             <td> {{ $data->description }} </td>
                                             @if ($data->status == 1) 
-                                                <td><span class="badge text-bg-success px-3">Accepted</span></td>
+                                                <td><span class="badge text-bg-success px-3 py-2">Accepted</span></td>
                                             @else
-                                                <td><span class="badge text-bg-danger px-3">Rejected</span></td>
+                                                <td><span class="badge text-bg-danger px-3 py-2">Rejected</span></td>
                                             @endif
                                             <td width="20px">
                                                 <form action="{{ route('delete.request') }}" method="POST">
@@ -307,11 +307,12 @@
                                             <th>User</th>
                                             <th>Keterangan</th>
                                             <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        @foreach ($history as $data)
+                                        @foreach ($historyUser as $data)
                                         <tr>
                                             <td> {{ $loop->iteration }} </td>
                                             <td> {{ $data->category }} </td>
@@ -324,6 +325,13 @@
                                             @else
                                                 <td><span class="badge text-bg-danger px-3">Rejected</span></td>
                                             @endif
+                                            <td width="20px">
+                                                <form action="{{ route('delete.request') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $data->id }}">
+                                                    <button type="submit" class="btn btn-danger btn-sm" id="delete"><img src={{ asset("img/trash-2.png") }} width="20px" height="19px"></button>
+                                                </form>
+                                            </td>
 
                                         </tr>
                                         @endforeach
