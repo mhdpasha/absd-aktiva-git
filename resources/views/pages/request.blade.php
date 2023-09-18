@@ -361,10 +361,15 @@
         }
 
         .dt-button-collection button {
+            transition: 0.3s ease;
             position: absolute;
             color: white;
             background: #adb5bd;
             top: 18px;
+        }
+
+        .dt-button-collection button:hover {
+            background: #6c757d;
         }
 
         .dt-button-collection button:nth-child(1) {

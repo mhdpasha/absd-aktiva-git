@@ -108,13 +108,22 @@
                                                 <div class="modal fade" id="showQR{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                                         <div class="modal-content">
-                                                            <h5 class="mt-5"><strong>QR Code</strong>  |  {{ $data->name }} </h5>
+                                                            <h5 class="mt-5"><strong>QR Code</strong>  |  {{ $data->name." (".date('Y', strtotime($data->date)).")" }} </h5>
                                                             
                                                             <div class="modal-body mb-5">
-                                                                @php 
-                                                                    $tanggal = date('d M Y', strtotime($data->date))
+                                                                @php
+                                                                    // 1 -> 01
+                                                                    $strloop = strval($loop->iteration);
+                                                                    $strlen = strlen($strloop);
+
+                                                                    $kode_cabang = '571A';
+                                                                    $kategori_aset = explode(" ", $data->category);
+                                                                    $departemen = 'A';
+                                                                    $jenis_aset = explode(" ", $data->itemcode);
+                                                                    $tahun_perolehan = date('y', strtotime($data->date));
+                                                                    $nomor_urut = ($strlen < 2) ? "0{$strloop}" : $strloop;
                                                                 @endphp
-                                                                {{ QrCode::format('svg')->size(300)->generate($data->name." - ".$tanggal) }}
+                                                                {{ QrCode::format('svg')->size(300)->generate("{$kode_cabang} {$kategori_aset[0]} {$departemen} {$jenis_aset[0]} {$tahun_perolehan} {$nomor_urut}") }}
                                                             </div>
                                                         </div>
                                                 </div>
@@ -181,10 +190,15 @@
         }
 
         .dt-button-collection button {
+            transition: 0.3s ease;
             position: absolute;
             color: white;
             background: #adb5bd;
             top: 82px;
+        }
+
+        .dt-button-collection button:hover {
+            background: #6c757d;
         }
 
         .dt-button-collection button:nth-child(1) {
