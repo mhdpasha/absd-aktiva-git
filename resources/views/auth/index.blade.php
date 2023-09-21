@@ -54,7 +54,7 @@
   </style>
   <body>
 
-    <form class="global-container" action="{{ url('/dashboard') }}" method="">
+      <form class="global-container" action="{{ url('/dashboard') }}" method="">
         <div class="card Login-form">
             <div class="d-flex justify-content-center">
                 <img class="mb-5 mt-2" src="img/logo absd.png" alt="heroImg">
