@@ -54,7 +54,7 @@
   </style>
   <body>
 
-    <form class="global-container" action="" method="POST">
+    <form class="global-container" action="{{ url('/dashboard') }}" method="">
         <div class="card Login-form">
             <div class="d-flex justify-content-center">
                 <img class="mb-5 mt-2" src="img/logo absd.png" alt="heroImg">
@@ -63,7 +63,7 @@
                 <form>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Username</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" autocomplete="off">
+                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" autocomplete="off">
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Password</label>

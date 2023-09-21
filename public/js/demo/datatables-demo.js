@@ -34,15 +34,11 @@ $(document).ready(function() {
             exportOptions: {
               columns: 'th:not(:last-child)'
             },
+            customize: function (doc) {
+              doc.content[1].table.widths = 
+                  Array(doc.content[1].table.body[0].length + 1).join('*').split('');
+            }
           },
-          // {
-          //   extend: 'csv',
-          //   text: 'CSV',
-          //   className: 'btn btn-sm btn-info',
-          //   exportOptions: {
-          //     columns: 'th:not(:last-child)'
-          //   },
-          // },
           {
             extend: 'pageLength',
             className: 'btn btn-sm btn-secondary',
@@ -50,7 +46,7 @@ $(document).ready(function() {
         ],
     scrollX: true,
   });
-  table.buttons().container().appendTo( '#example_wrapper .col-md-6:eq(0)' )
+
 });
 
 $(document).ready(function() {

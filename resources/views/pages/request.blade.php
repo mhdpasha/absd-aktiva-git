@@ -40,7 +40,7 @@
                     <p></p>
                     
                     <!-- DataTales Example -->
-                    <card-background class="card shadow mb-5" data-aos="fade-down" data-aos-delay="0" data-aos-duration="800">
+                    <card-background class="card shadow mb-5">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
@@ -100,7 +100,7 @@
                     <p></p>
                     <p></p>
 
-                    <card-background class="card shadow mb-5" data-aos="fade-down" data-aos-delay="0" data-aos-duration="800">
+                    <card-background class="card shadow mb-5">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered text-center" id="dataTable2" width="100%" cellspacing="0">
@@ -151,7 +151,7 @@
                     <p></p>
                     <p></p>
 
-                    <card-background class="card shadow mb-4" data-aos="fade-down" data-aos-delay="100" data-aos-duration="800">
+                    <card-background class="card shadow mb-4">
                         
                         <form action="{{ route('tambah.request') }}" method="POST" class="mt-3">
                             @csrf
@@ -233,7 +233,7 @@
                     <p></p>
                     <p></p>
 
-                    <card-background class="card shadow mb-4" data-aos="fade-down" data-aos-delay="100" data-aos-duration="800">
+                    <card-background class="card shadow mb-4">
                         
                         <form action="{{ route('tambah.request') }}" method="POST" class="mt-3">
                             @csrf
@@ -294,7 +294,7 @@
                     <p></p>
                     <p></p>
 
-                    <card-background class="card shadow mb-5" data-aos="fade-down" data-aos-delay="0" data-aos-duration="800">
+                    <card-background class="card shadow mb-5">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered text-center" id="dataTable2" width="100%" cellspacing="0">
