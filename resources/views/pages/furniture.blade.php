@@ -115,14 +115,13 @@
                                                                 @php
                                                                     // 1 -> 01
                                                                     $strloop = strval($loop->iteration);
-                                                                    $strlen = strlen($strloop);
+                                                                    $nomor_urut = (strlen($strloop) < 2) ? "0{$strloop}" : $strloop;
 
                                                                     $kode_cabang = '571A';
                                                                     $kategori_aset = explode(" ", $data->category);
                                                                     $departemen = 'A';
                                                                     $jenis_aset = explode(" ", $data->itemcode);
                                                                     $tahun_perolehan = date('y', strtotime($data->date));
-                                                                    $nomor_urut = ($strlen < 2) ? "0{$strloop}" : $strloop;
                                                                 @endphp
                                                                 {{ QrCode::format('svg')->size(300)->generate("{$kode_cabang} {$kategori_aset[0]} {$departemen} {$jenis_aset[0]} {$tahun_perolehan} {$nomor_urut}") }}
                                                             </div>

@@ -114,8 +114,7 @@
                                                                 @php
                                                                     // 1 -> 01
                                                                     $strloop = strval($loop->iteration);
-                                                                    $strlen = strlen($strloop);
-                                                                    $nomor_urut = ($strlen < 2) ? "0{$strloop}" : $strloop;
+                                                                    $nomor_urut = (strlen($strloop) < 2) ? "0{$strloop}" : $strloop;
 
                                                                     $kode_cabang = '571A'; // $data->user->cabang
                                                                     $kategori_aset = explode(" ", $data->category);
