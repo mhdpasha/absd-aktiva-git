@@ -35,7 +35,7 @@
 
                     @if ($user == 'Admin')
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Incoming Request</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Incoming Request <span class="badge text-bg-primary px-3 py-2 ml-2">Admin</span></h1>
                     <p></p>
                     <p></p>
                     
@@ -96,7 +96,7 @@
                     </card-background>
 
 
-                    <h1 class="h3 mb-2 text-gray-800">History Request</h1>
+                    <h1 class="h3 mb-2 text-gray-800">History Request <span class="badge text-bg-primary px-3 py-2 ml-2">Admin</span></h1>
                     <p></p>
                     <p></p>
 

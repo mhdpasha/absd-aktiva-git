@@ -43,7 +43,8 @@ class AsetController extends Controller
             'name' => 'required',
             'description' => 'required',
             'isFurniture' => 'required',
-            'date' => 'required'
+            'date' => 'required',
+            'price' => 'required'
         ]);
 
         Aset::create($validated);

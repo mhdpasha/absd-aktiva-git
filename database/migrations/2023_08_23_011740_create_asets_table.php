@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('description');
             $table->boolean('isFurniture');
             $table->date('date')->nullable();
+            $table->bigInteger('price')->nullable();
             $table->timestamps();
         });
     }

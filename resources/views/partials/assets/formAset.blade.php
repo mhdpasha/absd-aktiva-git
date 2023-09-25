@@ -50,6 +50,10 @@
                     <input type="date" data-provide="datepicker" id="datepicker" class="form-control" name="date" id="date" autocomplete="off">
                 </div>
                 <div class="form-group" style="width: 100%;">
+                    <label for="exampleInputKeterangan">Harga (Rp) <span style="color: red;">*</span></label>
+                    <input type="Harga" class="form-control" name="price" id="price" autocomplete="off">
+                </div>
+                <div class="form-group" style="width: 100%;">
                     <label for="exampleInputKeterangan">Keterangan <span style="color: red;">*</span></label>
                     <input type="Keterangan" class="form-control" name="description" id="description" autocomplete="off">
                 </div>

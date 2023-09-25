@@ -18,7 +18,10 @@ class DashboardController extends Controller
             "dataInventaris" => Aset::where('isFurniture', 0)->count(),
             "dataFurniture" => Aset::where('isFurniture', 1)->count(),
             "dataItemcode" => Item::count(),
-            "dataMaintenance" => Maintenance::count(),
+            "aset" => Aset::all(),
+            "user" => User::count(),
+
+
             "dataRequest" => ItemRequest::where('isHistory', 0)->count(),
             "request" => ItemRequest::where('isHistory', 0)->get()
         ]);

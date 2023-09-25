@@ -8,7 +8,7 @@ $(document).ready(function() {
       [ '10 rows', '25 rows', '50 rows', 'Show all' ]
     ],
     columnDefs: [
-      { "searchable": false, "targets": 6 }
+      { "searchable": false, "targets": 7 }
     ],
         buttons: [
           {

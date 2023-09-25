@@ -22,6 +22,12 @@
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
                 @if ($notification == 0)
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                    There is no notification right now
+                </h6>
+            </div>
                 @else
                 <span class="badge badge-danger badge-counter">+{{ $notification }}</span>
                 @endif

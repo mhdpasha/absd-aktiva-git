@@ -1,6 +1,13 @@
 @extends('layouts.main', ['notification' => $dataRequest, 'caption' => $request])
 
 @section('content')
+            @php
+                $hargaTotal = 0;
+                foreach($aset as $data) {
+                    $hargaItem = $data->price;
+                    $hargaTotal += $hargaItem;
+                }
+            @endphp
         <!-- Content Wrapper -->
 
             <!-- Main Content -->
@@ -25,8 +32,8 @@
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-dark text-uppercase text-center mb-1"> {{ $dataInventaris }} </div>
-                                                <div class="h5 mb-0 text-gray-800 text-center">Total Inventaris</div>
+                                                <div class="text-xs font-weight-bold text-dark text-uppercase text-center mb-1"> {{ $dataInventaris + $dataFurniture }} </div>
+                                                <div class="h5 mb-0 text-gray-800 text-center">Jumlah Aset</div>
                                                 <hr>
                                             </div>
                                         </div>
@@ -41,8 +48,8 @@
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-dark text-uppercase text-center mb-1"> {{ $dataFurniture }} </div>
-                                                <div class="h5 mb-0 text-gray-800 text-center">Total Furniture</div>
+                                                <div class="text-xs font-weight-bold text-dark text-center mb-1">Rp {{ number_format(($hargaTotal * 1.11), 0, '', '.') }} </div>
+                                                <div class="h5 mb-0 text-gray-800 text-center">Total Valuasi Aset</div>
                                                 <hr>
                                             </div>
                                         </div>
@@ -57,8 +64,8 @@
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-dark text-uppercase text-center mb-1"> {{ $dataRequest }} </div>
-                                                <div class="h5 mb-0 text-gray-800 text-center">Request pending</div>
+                                                <div class="text-xs font-weight-bold text-dark text-uppercase text-center mb-1"> {{ $dataItemcode }} </div>
+                                                <div class="h5 mb-0 text-gray-800 text-center">Kode Item</div>
                                                 <hr>
                                             </div>
                                         </div>
@@ -73,8 +80,8 @@
                                     <div class="card-body">
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-dark text-uppercase text-center mb-1"> {{ $dataMaintenance }} </div>
-                                                <div class="h5 mb-0 text-gray-800 text-center">Maintenance</div>
+                                                <div class="text-xs font-weight-bold text-dark text text-center mb-1">{{ $user }}</div>
+                                                <div class="h5 mb-0 text-gray-800 text-center">Jumlah User</div>
                                                 <hr>
                                             </div>
                                         </div>
@@ -155,11 +162,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script>
-        let xVal = ["Inventaris", "Furniture", "Request", "Maintenance"];
-        let yVal = [{{ $dataInventaris }}, {{ $dataFurniture }}, {{ $dataRequest }}, {{ $dataMaintenance }}];
+        let totalAset = {{ $dataInventaris + $dataFurniture }}
+        let xVal = ["Inventaris", "Furniture", "Request", "Total Aset"];
+        let yVal = [{{ $dataInventaris }}, {{ $dataFurniture }}, {{ $dataRequest }}, totalAset];
         let barColors = ["red", "green","orange","blue"];
 
-        let totalAset = {{ $dataInventaris + $dataFurniture }}
         
         new Chart("barChart", {
         type: "bar",

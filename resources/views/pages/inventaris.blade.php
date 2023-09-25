@@ -20,7 +20,8 @@
                                             <th width="200px">Kategori Aset</th>
                                             <th width="200px">Jenis Aset</th>
                                             <th width="300px">Nama Aset</th>
-                                            <th width="150px">Tanggal Perolehan</th>
+                                            <th width="170px">Tanggal Perolehan</th>
+                                            <th width="150px">Harga</th>
                                             <th width="300px">Keterangan</th>
                                             <th>Action</th>
                                         </tr>
@@ -35,6 +36,7 @@
                                             <td>{{ $data->itemcode }}</td>
                                             <td>{{ $data->name }}</td>
                                             <td>{{ date('d M Y', strtotime($data->date)) }}</td>
+                                            <td>Rp {{ number_format($data->price, 0, '', '.') }}</td>
                                             <td>{{ $data->description }}</td>
                                             <td class="d-flex justify-content-center items-center">
                                                 <form action="{{ route('delete.aset') }}" method="POST" id="delete-form">
@@ -90,6 +92,10 @@
                                                                     <input value="{{ $data->date }}" type="date" data-provide="datepicker" id="datepicker" class="form-control" name="date" id="date" autocomplete="off">
                                                                 </div>
                                                                 <div class="form-group mt-2" style="width: 100%;">
+                                                                    <label for="exampleInputKeterangan">Harga (Rp)</label>
+                                                                    <input value="{{ $data->price }}" type="price" class="form-control" name="price" id="price" autocomplete="off">
+                                                                </div>
+                                                                <div class="form-group mt-2" style="width: 100%;">
                                                                     <label for="exampleInputKeterangan">Keterangan</label>
                                                                     <input value="{{ $data->description }}" type="Keterangan" class="form-control" name="description" id="description" autocomplete="off">
                                                                 </div>
@@ -110,20 +116,22 @@
                                                         <div class="modal-content">
                                                             <h5 class="mt-5"><strong>QR Code</strong>  |  {{ $data->name." (".date('Y', strtotime($data->date)).")" }} </h5>
                                                             
-                                                            <div class="modal-body mb-5">
+                                                            <div class="modal-body mb-1">
                                                                 @php
-                                                                    // 1 -> 01
-                                                                    $strloop = strval($loop->iteration);
-                                                                    $nomor_urut = (strlen($strloop) < 2) ? "0{$strloop}" : $strloop;
-
+                                                                    $nomor_urut = (strlen(strval($loop->iteration)) < 2) ? "0{$loop->iteration}" : $loop->iteration;
                                                                     $kode_cabang = '571A'; // $data->user->cabang
                                                                     $kategori_aset = explode(" ", $data->category);
                                                                     $departemen = 'A'; // $data->user->akses
                                                                     $jenis_aset = explode(" ", $data->itemcode);
                                                                     $tahun_perolehan = date('y', strtotime($data->date));
+
+                                                                    $displayData = "{$kode_cabang} {$kategori_aset[0]} {$departemen} {$jenis_aset[0]} {$tahun_perolehan} {$nomor_urut}";
                                                                 @endphp
-                                                                {{ QrCode::format('svg')->size(300)->generate("{$kode_cabang} {$kategori_aset[0]} {$departemen} {$jenis_aset[0]} {$tahun_perolehan} {$nomor_urut}") }}
+                                                                {{ QrCode::format('svg')->size(300)->generate($displayData) }}
                                                             </div>
+
+                                                            <h5 class="mt-3 mb-5"><strong>Kode: </strong>   {{ $displayData }} </h5>
+
                                                         </div>
                                                 </div>
 
