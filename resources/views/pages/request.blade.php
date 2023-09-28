@@ -3,7 +3,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    @if ($errors->any())
+                            @if ($errors->any())
                                     <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
                                         <h4><strong>Field belum terisi :</strong></h4>
                                         <ul style="list-style-type: >">
@@ -65,7 +65,7 @@
                                             <td> {{ $data->category }} </td>
                                             <td> {{ $data->itemcode }} </td>
                                             <td> {{ $data->name }} </td>
-                                            <td><strong> {{ $data->user }} </strong></td>
+                                            <td><strong> {{ $data->username }} </strong></td>
                                             <td> {{ $data->description }} </td>
                                             <td> Rp {{ number_format($data->price, 0, '', '.') }} </td>
                                             <td><span class="badge text-bg-warning px-3 py-2">Pending</span></td>
@@ -73,6 +73,7 @@
                                                 <form action="{{ route('accept.request') }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $data->id }}">
+                                                    <input type="hidden" name="user_id" value="{{ $data->user_id }}">
                                                     <input type="hidden" name="category" value="{{ $data->category }}">
                                                     <input type="hidden" name="itemcode" value="{{ $data->itemcode }}">
                                                     <input type="hidden" name="name" value="{{ $data->name }}">
@@ -128,7 +129,7 @@
                                             <td> {{ $data->category }} </td>
                                             <td> {{ $data->itemcode }} </td>
                                             <td> {{ $data->name }} </td>
-                                            <td><strong> {{ $data->user }} </strong></td>
+                                            <td><strong> {{ $data->username }} </strong></td>
                                             <td> {{ $data->description }} </td>
                                             <td> Rp {{ number_format($data->price, 0, '', '.') }} </td>
                                             @if ($data->status == 1) 
@@ -204,8 +205,8 @@
                             </section>
                             
                                 {{-- hidden input --}}
-                                <input type="hidden" name="user" value="{{ $user->name }}">
-                                <input type="hidden" name="isHistory" value="0">
+                                <input type="hidden" name="username" value="{{ $user->name }}">
+                                <input type="hidden" name="user_id" value="{{ $user->id }}">
                                 <input type="hidden" name="status" value="1">
                             
                             <div class="form-group px-4 mt-4 mb-5">
@@ -290,7 +291,8 @@
                             </section>
                             
                                 {{-- hidden input --}}
-                                <input type="hidden" name="user" value="{{ $user->name }}">
+                                <input type="hidden" name="username" value="{{ $user->name }}">
+                                <input type="hidden" name="user_id" value="{{ $user->id }}">
                                 <input type="hidden" name="isHistory" value="0">
                                 <input type="hidden" name="status" value="1">
                             
@@ -331,7 +333,7 @@
                                             <td> {{ $data->category }} </td>
                                             <td> {{ $data->itemcode }} </td>
                                             <td> {{ $data->name }} </td>
-                                            <td> {{ $data->user }} </td>
+                                            <td> {{ $data->username }} </td>
                                             <td> {{ $data->description }} </td>
                                             @if ($data->status == 1) 
                                                 <td><span class="badge text-bg-success px-3">Accepted</span></td>

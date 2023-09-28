@@ -23,7 +23,7 @@ class ItemController extends Controller
     public function storeItem(Request $request)
     {
         $validated = $request->validate([
-            'kodeAset' => 'required',
+            'kodeAset' => 'required|max:2',
             'jenisAset' => 'required',
             'isFurniture' => 'required'
         ]);

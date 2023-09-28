@@ -155,3 +155,45 @@ $(document).ready(function() {
   });
   table.buttons().container().appendTo( '#example_wrapper .col-md-6:eq(0)' )
 });
+
+$(document).ready(function() {
+  $('#dataTableExport').DataTable({
+    select: true,
+    dom: 'Bfrtip',
+    lengthMenu: [
+      [ 10, 25, 50, -1 ],
+      [ '10 rows', '25 rows', '50 rows', 'Show all' ]
+    ],
+        buttons: [
+          {
+            extend: 'print',
+            text: 'Print',
+            className: 'btn btn-sm btn-primary',
+          },
+          {
+            extend: 'excel',
+            text: 'Excel',
+            className: 'btn btn-sm btn-success',
+          },
+          {
+            extend: 'pdf',
+            text: 'PDF',
+            className: 'btn btn-sm btn-danger',
+          },
+          // {
+          //   extend: 'csv',
+          //   text: 'CSV',
+          //   className: 'btn btn-sm btn-info',
+          //   exportOptions: {
+          //     columns: 'th:not(:last-child)'
+          //   },
+          // },
+          {
+            extend: 'pageLength',
+            className: 'btn btn-sm btn-secondary',
+          }
+        ],
+    scrollX: true,
+  });
+  table.buttons().container().appendTo( '#example_wrapper .col-md-6:eq(0)' )
+});

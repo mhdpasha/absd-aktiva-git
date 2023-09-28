@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'pasha',
             'email' => 'pasha@gmail.com',
             'isAdmin' => 1,
-            'kode_cabang' => '571A',
+            'kode_cabang' => '571A - OX Pekanbaru',
             'password' => bcrypt('pasha123')
         ]);
         // User
@@ -32,24 +32,9 @@ class DatabaseSeeder extends Seeder
             'username' => 'napi',
             'email' => 'napi@gmail.com',
             'isAdmin' => 0,
-            'kode_cabang' => '573A',
+            'kode_cabang' => '572A - OX Denpasar',
             'password' => bcrypt('napi123')
         ]);
-
-        // Rejected Example
-        ItemRequest::create([
-            'category' => 'I - Inventaris Kantor',
-            'itemcode' => '01 - Komputer',
-            'name' => 'Mac PC',
-            'user' => 'Muhammad Rifaldi',
-            'description' => 'Untuk hedon',
-            'isFurniture' => 0,
-            'isHistory' => 1,
-            'status' => 0,
-            'date' => '2023-09-14',
-            'price' => 20000000
-        ]);
-
 
         // Itemcode Inventaris
         $dataInventaris = [

@@ -33,7 +33,7 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col mr-2">
                                                 <div class="text-xs font-weight-bold text-dark text-uppercase text-center mb-1"> {{ $dataInventaris + $dataFurniture }} </div>
-                                                <div class="h5 mb-0 text-gray-800 text-center">Jumlah Aset</div>
+                                                <div class="h5 mb-0 text-gray-800 text-center">Total Aset</div>
                                                 <hr>
                                             </div>
                                         </div>

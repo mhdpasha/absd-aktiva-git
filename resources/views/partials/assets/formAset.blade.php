@@ -29,10 +29,15 @@
                     <input type="namaAset" class="form-control" name="name" id="name" aria-describedby="nama aset" autocomplete="off">
                 </div>
 
+
                     <select class="form-control" name="isFurniture" id="isFurniture" hidden>
                         <option value="1" {{ ($title === "Furniture") ? 'selected' : '' }}>Furniture</option>
                         <option value="0" {{ ($title === "Inventaris") ? 'selected' : '' }}>Inventaris</option>
                     </select>
+
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
+
 
                 <div class="form-group" style="width: 100%;">
                     <label for="exampleInputCodeBarang">Kategori Aset <span style="color: red;">*</span></label>

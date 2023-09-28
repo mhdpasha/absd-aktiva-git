@@ -15,7 +15,7 @@ class AsetController extends Controller
     {
         return view('pages.inventaris', [
             "title" => "Inventaris",
-            "aset" => Aset::where('isFurniture', 0)->get(),
+            "aset" => Aset::where('isFurniture', 0)->with('user')->get(),
             "itemInventaris" => Item::where('isFurniture', 0)->get(),
             "itemFurniture" => Item::where('isFurniture', 1)->get(),
             "dataRequest" => ItemRequest::where('isHistory', 0)->count(),
@@ -27,7 +27,7 @@ class AsetController extends Controller
     {
         return view('pages.furniture', [
             "title" => "Furniture",
-            "aset" => Aset::where('isFurniture', 1)->get(),
+            "aset" => Aset::where('isFurniture', 1)->with('user')->get(),
             "itemInventaris" => Item::where('isFurniture', 0)->get(),
             "itemFurniture" => Item::where('isFurniture', 1)->get(),
             "dataRequest" => ItemRequest::where('isHistory', 0)->count(),
@@ -44,7 +44,8 @@ class AsetController extends Controller
             'description' => 'required',
             'isFurniture' => 'required',
             'date' => 'required',
-            'price' => 'required'
+            'price' => 'required',
+            'user_id' => 'required'
         ]);
 
         Aset::create($validated);

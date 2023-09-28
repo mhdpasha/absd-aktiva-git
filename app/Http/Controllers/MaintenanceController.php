@@ -15,7 +15,7 @@ class MaintenanceController extends Controller
     {
         return view('pages.maintenance', [
             "title" => "Maintenance",
-            "aset" => Aset::all(),
+            "aset" => Aset::with('user')->get(),
             "itemInventaris" => Item::where('isFurniture', 0)->get(),
             "itemFurniture" => Item::where('isFurniture', 1)->get(),
 

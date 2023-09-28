@@ -120,9 +120,9 @@
                                                             <div class="modal-body mb-1">
                                                                 @php
                                                                     $nomor_urut = (strlen(strval($loop->iteration)) < 2) ? "0{$loop->iteration}" : $loop->iteration;
-                                                                    $kode_cabang = '571A'; // $data->user->cabang
+                                                                    $kode_cabang = $data->user->kode_cabang;
                                                                     $kategori_aset = explode(" ", $data->category);
-                                                                    $departemen = 'A'; // $data->user->akses
+                                                                    $departemen = ($data->user->isAdmin == 1) ? "A" : "U";
                                                                     $jenis_aset = explode(" ", $data->itemcode);
                                                                     $tahun_perolehan = date('y', strtotime($data->date));
 

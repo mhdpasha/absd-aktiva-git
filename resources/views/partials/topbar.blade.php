@@ -48,7 +48,7 @@
                         </div>
                         <div>
                             <div class="small text-gray-500">{{ date('d M Y', strtotime($caps->created_at)) }}</div>
-                            <span class="font-weight-bold">{{ $caps->user }} sent a new request ({{ ($caps->isFurniture == 0) ? 'Inventaris' : 'Furniture' }}) on pending</span>
+                            <span class="font-weight-bold">{{ $caps->username }} sent a new request ({{ ($caps->isFurniture == 0) ? 'Inventaris' : 'Furniture' }}) on pending</span>
                         </div>
                     </a>
                     @elseif ($caps->status == 0 && $caps->isHistory == 1)

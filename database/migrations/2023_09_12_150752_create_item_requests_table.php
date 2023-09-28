@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('item_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('username');
+            $table->string('user_id');
             $table->string('category');
             $table->string('itemcode');
             $table->string('name');
-            $table->string('user');
             $table->text('description');
             $table->boolean('isFurniture');
             $table->boolean('isHistory')->nullable();

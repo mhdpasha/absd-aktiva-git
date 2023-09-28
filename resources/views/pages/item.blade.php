@@ -14,6 +14,34 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered text-center" id="dataTableMin" width="100%" cellspacing="0">
+                                    @if ($errors->any())
+                                    <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
+                                        <h4><strong>Error</strong></h4>
+                                        <ul style="list-style-type: >">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                            @elseif (session()->has('added'))
+                                    <div class="alert alert-success alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
+                                        <strong class="d-flex items-center justify-content-center">
+                                             {{ session('added') }}
+                                        </strong>
+                                    </div>
+                            @elseif (session()->has('saved'))
+                                    <div class="alert alert-primary alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
+                                        <strong class="d-flex items-center justify-content-center">
+                                             {{ session('saved') }}
+                                        </strong>
+                                    </div>
+                            @elseif (session()->has('deleted'))
+                                    <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
+                                        <strong class="d-flex items-center justify-content-center">
+                                             {{ session('deleted') }}
+                                        </strong>
+                                    </div>
+                            @endif
                                     <thead>
                                         <tr>
                                             <th width="10px">No</th>
@@ -82,26 +110,6 @@
 
                                     </tbody>
                                 </table>
-
-                                @if (session()->has('added'))
-                                    <div class="alert alert-success alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
-                                        <strong class="d-flex items-center justify-content-center">
-                                            {{ session('added') }}
-                                        </strong>
-                                    </div>
-                            @elseif (session()->has('saved'))
-                                    <div class="alert alert-primary alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
-                                        <strong class="d-flex items-center justify-content-center">
-                                            {{ session('saved') }}
-                                        </strong>
-                                    </div>
-                            @elseif (session()->has('deleted'))
-                                    <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
-                                        <strong class="d-flex items-center justify-content-center">
-                                            {{ session('deleted') }}
-                                        </strong>
-                                    </div>
-                            @endif
 
                             </div>
                         </div>

@@ -24,7 +24,7 @@ class ItemRequestController extends Controller
             "historyAdmin" => ItemRequest::where('isHistory', 1)->get(),
             "historyUser" => ItemRequest::where([
                 'isHistory' => 1,
-                'user' => $user->name
+                'username' => $user->name
             ])->get(),
 
             "dataRequest" => ItemRequest::where('isHistory', 0)->count(),
@@ -35,10 +35,11 @@ class ItemRequestController extends Controller
     public function storeRequest(Request $request)
     {
         $validated = $request->validate([
+            'username' => 'required',
+            'user_id' => 'required',
             'category' => 'required',
             'itemcode' => 'required',
             'name' => 'required',
-            'user' => 'required',
             'description' => 'required',
             'isFurniture' => 'required',
             'isHistory' => 'required',
@@ -62,6 +63,7 @@ class ItemRequestController extends Controller
         $data->save();
         
         Aset::create([
+            "user_id" => $request->user_id,
             "category" => $request->category,
             "itemcode" => $request->itemcode,
             "name" => $request->name,
