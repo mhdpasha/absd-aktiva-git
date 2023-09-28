@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Aset;
 use App\Models\Item;
+use App\Models\User;
 use App\Models\ItemRequest;
 
 
@@ -18,6 +19,8 @@ class AsetController extends Controller
             "aset" => Aset::where('isFurniture', 0)->with('user')->get(),
             "itemInventaris" => Item::where('isFurniture', 0)->get(),
             "itemFurniture" => Item::where('isFurniture', 1)->get(),
+            "user" => User::all(),
+
             "dataRequest" => ItemRequest::where('isHistory', 0)->count(),
             "request" => ItemRequest::where('isHistory', 0)->get()
         ]);
@@ -30,6 +33,8 @@ class AsetController extends Controller
             "aset" => Aset::where('isFurniture', 1)->with('user')->get(),
             "itemInventaris" => Item::where('isFurniture', 0)->get(),
             "itemFurniture" => Item::where('isFurniture', 1)->get(),
+            "user" => User::all(),
+
             "dataRequest" => ItemRequest::where('isHistory', 0)->count(),
             "request" => ItemRequest::where('isHistory', 0)->get()
         ]);

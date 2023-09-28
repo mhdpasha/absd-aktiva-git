@@ -55,7 +55,7 @@
                                             <td>{{ $data->name }}</td>
                                             <td>{{ date('d M Y', strtotime($data->date)) }}</td>
                                             <td>Rp {{ number_format($data->price, 0, '', '.') }}</td>
-                                            <td>{{ $data->user->name }}</td>
+                                            <td>{{ $data->user->name?? "Deleted User" }}</td>
                                             <td>{{ $data->description }}</td>
                                         </tr>
                                         @endforeach 

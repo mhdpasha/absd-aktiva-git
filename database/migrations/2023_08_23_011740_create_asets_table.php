@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('asets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');;
             $table->string('category');
             $table->string('itemcode');
             $table->string('name');

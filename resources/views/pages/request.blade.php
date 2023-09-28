@@ -33,7 +33,7 @@
                             @endif
 
 
-                    @if ($user->isAdmin == 1)
+                    @if ($user->isAdmin)
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Incoming Request <span class="badge text-bg-primary px-3 py-2 ml-2">Admin</span></h1>
                     <p></p>
@@ -132,7 +132,7 @@
                                             <td><strong> {{ $data->username }} </strong></td>
                                             <td> {{ $data->description }} </td>
                                             <td> Rp {{ number_format($data->price, 0, '', '.') }} </td>
-                                            @if ($data->status == 1) 
+                                            @if ($data->status) 
                                                 <td><span class="badge text-bg-success px-3 py-2">Accepted</span></td>
                                             @else
                                                 <td><span class="badge text-bg-danger px-3 py-2">Rejected</span></td>
@@ -207,7 +207,9 @@
                                 {{-- hidden input --}}
                                 <input type="hidden" name="username" value="{{ $user->name }}">
                                 <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                <input type="hidden" name="isHistory" value="0">
                                 <input type="hidden" name="status" value="1">
+
                             
                             <div class="form-group px-4 mt-4 mb-5">
                                 <button type="submit" class="btn btn-primary px-5">Submit</button>
@@ -335,7 +337,7 @@
                                             <td> {{ $data->name }} </td>
                                             <td> {{ $data->username }} </td>
                                             <td> {{ $data->description }} </td>
-                                            @if ($data->status == 1) 
+                                            @if ($data->status) 
                                                 <td><span class="badge text-bg-success px-3">Accepted</span></td>
                                             @else
                                                 <td><span class="badge text-bg-danger px-3">Rejected</span></td>

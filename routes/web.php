@@ -32,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/user', 'displayUser')->middleware('admin');
         Route::post('tambah-user', 'storeUser')->name('tambah.user');
         Route::post('delete-user', 'deleteUser')->name('delete.user');
+        Route::post('/update-user/{id}', 'updateUser')->name('update.user');
     });
 
     Route::controller(AsetController::class)->group(function () {

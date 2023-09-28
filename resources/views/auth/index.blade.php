@@ -72,7 +72,7 @@
         padding: 45px;
         background-color: rgba(255,255,255,0.13);
         backdrop-filter: blur(10px);
-        box-shadow: 0 0 40px rgba(8,7,16,0.6);
+        box-shadow: 0 0 40px rgba(8,7,16,0.3);
         position: absolute;
         border-radius: 10px;
         margin-bottom: 25px;

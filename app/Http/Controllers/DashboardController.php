@@ -56,6 +56,7 @@ class DashboardController extends Controller
     public function deleteUser(Request $request, User $user)
     {
         $user->where('id', $request->id)->first()->delete();
+        $user->aset()->delete();
         return redirect()->back()->with('deleted', 'User telah dihapus');
     }
 }
