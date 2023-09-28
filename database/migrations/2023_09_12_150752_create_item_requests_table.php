@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('isHistory')->nullable();
             $table->boolean('status')->nullable();
             $table->date('date')->nullable();
+            $table->bigInteger('price')->nullable();
             $table->timestamps();
         });
     }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Item;
+use App\Models\User;
 use App\Models\ItemRequest;
 
 class DatabaseSeeder extends Seeder
@@ -16,8 +17,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Admin
+        User::create([
+            'name' => 'Muhamad Pasha Albara',
+            'username' => 'pasha',
+            'email' => 'pasha@gmail.com',
+            'isAdmin' => 1,
+            'kode_cabang' => '571A',
+            'password' => bcrypt('pasha123')
+        ]);
+        // User
+        User::create([
+            'name' => 'Muhamad Hanafi',
+            'username' => 'napi',
+            'email' => 'napi@gmail.com',
+            'isAdmin' => 0,
+            'kode_cabang' => '573A',
+            'password' => bcrypt('napi123')
+        ]);
 
-        // Request
+        // Rejected Example
         ItemRequest::create([
             'category' => 'I - Inventaris Kantor',
             'itemcode' => '01 - Komputer',
@@ -27,21 +46,9 @@ class DatabaseSeeder extends Seeder
             'isFurniture' => 0,
             'isHistory' => 1,
             'status' => 0,
-            'date' => '2023-09-14'
+            'date' => '2023-09-14',
+            'price' => 20000000
         ]);
-        // Rejected
-        ItemRequest::create([
-            'category' => 'I - Inventaris Kantor',
-            'itemcode' => '01 - Komputer',
-            'name' => 'PC Dell Latitude',
-            'user' => 'Muhamad Hanafi',
-            'description' => 'Untuk keperluan office',
-            'isFurniture' => 0,
-            'isHistory' => 0,
-            'status' => 1,
-            'date' => '2023-09-12'
-        ]);
-
 
 
         // Itemcode Inventaris

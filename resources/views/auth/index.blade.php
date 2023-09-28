@@ -98,28 +98,35 @@
       <div class="shape" id="shape"></div>
       <div class="shape" id="shape"></div>
     </div>
-    <form class="global-container" action="{{ url('dashboard') }}" method="">
-        <div class="card Login-form">
-            <div class="d-flex justify-content-center">
-                <img class="mb-5 mt-2" src="img/logo absd.png" alt="heroImg">
-            </div>
-            <div class="card-text" style="color: white;">
-                <form>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label text-black">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" autocomplete="off">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label text-black">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1" aria-describedby="password">
-                    </div>
-                    <div class="d-grid gap-2 mt-5">
-                      <button class="btn btn-lg btn-primary fw-semibold">LOGIN</button>
-                  </div>
-                  </form>
-            </div>
+    @if (session()->has('loginErr'))
+        <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert" data-dismiss="alert" style="cursor: pointer;">
+            <strong class="d-flex items-center justify-content-center">
+                 {{ session('loginErr') }}
+            </strong>
         </div>
-    </form>
+    @endif
+    <form class="global-container" action="{{ route('auth.verif') }}" method="POST">
+      @csrf
+      <div class="card Login-form">
+          <div class="d-flex justify-content-center">
+              <img class="mb-5 mt-2" src="img/logo absd.png" alt="heroImg">
+          </div>
+          <div class="card-text" style="color: white;">
+              <div class="mb-3">
+                  <label for="username" class="form-label text-black">Username</label>
+                  <input name="username" type="text" class="form-control" id="username" autocomplete="off" value="{{ old('username') }}">
+              </div>
+              <div class="mb-3">
+                  <label for="password" class="form-label text-black">Password</label>
+                  <input name="password" type="password" class="form-control" id="password" value="{{ old('password') }}">
+              </div>
+              <div class="d-grid gap-2 mt-5">
+                  <button class="btn btn-lg btn-primary fw-semibold">LOGIN</button>
+              </div>
+          </div>
+      </div>
+  </form>
+  
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

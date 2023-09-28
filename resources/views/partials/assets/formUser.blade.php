@@ -1,4 +1,4 @@
-<form action="" method="POST">
+<form action="{{ route('tambah.user') }}" method="POST">
     @csrf
     <div class="modal fade" id="mainAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -12,22 +12,44 @@
             <div class="modal-body" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
                 <div class="form-group">
                     <div>
-                        <label for="kodeAset">Kode Aset</label>
-                        <input class="form-control" type="text" name="kodeAset" autocomplete="off">
+                        <label for="kodeAset">Fullname</label>
+                        <input class="form-control" type="text" name="name" autocomplete="off">
                     </div>
                 </div>
                 <div class="form-group">
                     <div>
-                        <label for="kodeAset">Jenis Aset</label>
-                        <input class="form-control" type="text" name="jenisAset" autocomplete="off">
+                        <label for="kodeAset">Username</label>
+                        <input class="form-control" type="text" name="username" autocomplete="off">
                     </div>
                 </div>
-                <div class="form-group" style="width: 100%">
+                <div class="form-group">
                     <div>
-                        <label for="kodeAset">Kategori Aset</label>
-                        <select class="form-select" name="isFurniture">
-                            <option value="0">Inventaris</option>
-                            <option value="1">Furniture</option>
+                        <label for="kodeAset">Email</label>
+                        <input class="form-control" type="text" name="email" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="kodeAset">Password</label>
+                        <input class="form-control" type="text" name="password" autocomplete="off">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="kodeAset">Kode Cabang</label>
+                        <select class="form-select" name="kode_cabang">
+                            <option value="571A - OX Pekanbaru">571A - OX Pekanbaru</option>
+                            <option value="572A - OX Denpasar">572A - OX Denpasar</option>
+                            <option value="573A - OX Batam">573A - OX Batam</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="kodeAset">Akses</label>
+                        <select class="form-select" name="isAdmin">
+                            <option value="0">User</option>
+                            <option value="1">Admin</option>
                         </select>
                     </div>
                 </div>

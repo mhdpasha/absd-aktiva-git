@@ -21,6 +21,7 @@
                                 <th width="200px">Nama</th>
                                 <th width="200px">Username</th>
                                 <th width="300px">Email</th>
+                                <th width="150px">Kode Cabang</th>
                                 <th width="150px">Akses</th>
                                 <th>Action</th>
                             </tr>
@@ -28,18 +29,29 @@
                         
                         <tbody>
 
+                            @foreach ($users as $user)
                             <tr>
-                                <td>1</td>
-                                <td>Pasha</td>
-                                <td>pasha</td>
-                                <td>pasha@gmail.com</td>
-                                <td><span class="badge text-bg-primary px-3 py-2">Admin</span></td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->username }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->kode_cabang }}</td>
+                                @if ($user->isAdmin == 1)
+                                    <td><span class="badge text-bg-primary px-3 py-2">Admin</span></td>
+                                @else
+                                    <td><span class="badge text-bg-light px-3 py-2 border border-dark">User</span></td>
+                                @endif
                                 <td class="d-flex justify-content-center items-center">
-                                    <button class="btn btn-danger btn-sm"><img src="img/trash-2.png" width="20px" height="19px"></button>
+                                    <form action="{{ route('delete.user') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $user->id }}">
+                                        <button type="submit" class="btn btn-danger btn-sm" id="delete"><img src={{ asset("img/trash-2.png") }} width="20px" height="19px"></button>
+                                    </form>
                                     <button class="btn btn-warning btn-sm mx-2"><img src="img/edit.png" width="20px" height="21px"></button>
                                 </td>
                             </tr>
-                            
+                            @endforeach
+
                         </tbody>
                     </table>
                     @if ($errors->any())

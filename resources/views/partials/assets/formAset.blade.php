@@ -72,4 +72,4 @@
         <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="button" data-bs-toggle="modal" data-bs-target="#inventAdd">
             <i class="fas fa-plus fa-sm text-white-50"></i> Tambah
         </a>
-    </div>  
+    </div>

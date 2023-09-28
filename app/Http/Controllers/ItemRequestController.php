@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use App\Models\ItemRequest;
 use App\Models\Item;
 use App\Models\Aset;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class ItemRequestController extends Controller
 {
     public function displayRequest()
     {
-        $user = "Admin";
+        $user = Auth::user();
 
         return view('pages.request', [
             "title" => "Request",
@@ -23,7 +24,7 @@ class ItemRequestController extends Controller
             "historyAdmin" => ItemRequest::where('isHistory', 1)->get(),
             "historyUser" => ItemRequest::where([
                 'isHistory' => 1,
-                'user' => $user
+                'user' => $user->name
             ])->get(),
 
             "dataRequest" => ItemRequest::where('isHistory', 0)->count(),
@@ -41,7 +42,8 @@ class ItemRequestController extends Controller
             'description' => 'required',
             'isFurniture' => 'required',
             'isHistory' => 'required',
-            'status' => 'required'
+            'status' => 'required',
+            'price' => 'required'
         ]);
 
         ItemRequest::create($validated);
@@ -65,6 +67,7 @@ class ItemRequestController extends Controller
             "name" => $request->name,
             "description" => $request->description,
             "isFurniture" => $request->isFurniture,
+            "price" => $request->price,
             "date" => Carbon::now()
         ]);
 

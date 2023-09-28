@@ -33,7 +33,7 @@
                             @endif
 
 
-                    @if ($user == 'Admin')
+                    @if ($user->isAdmin == 1)
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Incoming Request <span class="badge text-bg-primary px-3 py-2 ml-2">Admin</span></h1>
                     <p></p>
@@ -52,6 +52,7 @@
                                             <th>Nama Aset</th>
                                             <th>User</th>
                                             <th>Keterangan</th>
+                                            <th>Harga</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -66,6 +67,7 @@
                                             <td> {{ $data->name }} </td>
                                             <td><strong> {{ $data->user }} </strong></td>
                                             <td> {{ $data->description }} </td>
+                                            <td> Rp {{ number_format($data->price, 0, '', '.') }} </td>
                                             <td><span class="badge text-bg-warning px-3 py-2">Pending</span></td>
                                             <td class="d-flex justify-content-center">
                                                 <form action="{{ route('accept.request') }}" method="POST">
@@ -75,6 +77,7 @@
                                                     <input type="hidden" name="itemcode" value="{{ $data->itemcode }}">
                                                     <input type="hidden" name="name" value="{{ $data->name }}">
                                                     <input type="hidden" name="description" value="{{ $data->description }}">
+                                                    <input type="hidden" name="price" value="{{ $data->price }}">
                                                     <input type="hidden" name="isFurniture" value="{{ $data->isFurniture }}">
 
                                                     <button type="submit" class="btn btn-success btn-sm"><img src="img/correct.png" width="20px" height="19px"> </button>
@@ -112,6 +115,7 @@
                                             <th>Nama Aset</th>
                                             <th>User</th>
                                             <th>Keterangan</th>
+                                            <th>Harga</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -126,6 +130,7 @@
                                             <td> {{ $data->name }} </td>
                                             <td><strong> {{ $data->user }} </strong></td>
                                             <td> {{ $data->description }} </td>
+                                            <td> Rp {{ number_format($data->price, 0, '', '.') }} </td>
                                             @if ($data->status == 1) 
                                                 <td><span class="badge text-bg-success px-3 py-2">Accepted</span></td>
                                             @else
@@ -192,10 +197,14 @@
                                     <label>Keterangan <span style="color: red;">*</span></label>
                                     <input type="text" class="form-control" name="description" autocomplete="off">
                                 </div>
+                                <div class="col">
+                                    <label>Harga (Rp)<span style="color: red;">*</span></label>
+                                    <input type="text" class="form-control" name="price" autocomplete="off">
+                                </div>
                             </section>
                             
                                 {{-- hidden input --}}
-                                <input type="hidden" name="user" value="{{ $user }}">
+                                <input type="hidden" name="user" value="{{ $user->name }}">
                                 <input type="hidden" name="isHistory" value="0">
                                 <input type="hidden" name="status" value="1">
                             
@@ -274,10 +283,14 @@
                                     <label>Keterangan <span style="color: red;">*</span></label>
                                     <input type="text" class="form-control" name="description" autocomplete="off">
                                 </div>
+                                <div class="col">
+                                    <label>Harga (Rp)<span style="color: red;">*</span></label>
+                                    <input type="text" class="form-control" name="price" autocomplete="off">
+                                </div>
                             </section>
                             
                                 {{-- hidden input --}}
-                                <input type="hidden" name="user" value="{{ $user }}">
+                                <input type="hidden" name="user" value="{{ $user->name }}">
                                 <input type="hidden" name="isHistory" value="0">
                                 <input type="hidden" name="status" value="1">
                             

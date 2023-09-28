@@ -11,7 +11,7 @@
                     @php
                     $hargaTotal = 0;
                     foreach($aset as $data) {
-                        $hargaItem = $data->price;
+                        $hargaItem = $data->price * 1.11;
                         $hargaTotal += $hargaItem;
                     }
                     @endphp
@@ -19,7 +19,7 @@
                     <!-- Modal -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                           Total valuasi aset (termasuk pajak PPN 11%): <strong>Rp {{ number_format(($hargaTotal * 1.11), 0, '', '.') }}</strong>
+                           Total valuasi aset (termasuk pajak PPN 11%): <strong>Rp {{ number_format($hargaTotal, 0, '', '.') }}</strong>
                         </div>  
                     
 
@@ -46,7 +46,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             @if ($data->isFurniture == 1 )
-                                                <td><span class="badge text-bg-info px-3 py-2">Furniture</span></td>
+                                                <td><span class="badge text-bg-success px-3 py-2">Furniture</span></td>
                                             @else 
                                                 <td><span class="badge text-bg-primary px-3 py-2">Inventaris</span></td>
                                             @endif
