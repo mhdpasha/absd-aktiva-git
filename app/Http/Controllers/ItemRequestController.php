@@ -19,7 +19,9 @@ class ItemRequestController extends Controller
         return view('pages.request', [
             "title" => "Request",
             "user" => $user,
-            "dataItem" => Item::all(),
+            "ItemInventaris" => Item::where('isFurniture', 0)->get(),
+            "ItemFurniture" => Item::where('isFurniture', 1)->get(),
+            
             "request" => ItemRequest::where('isHistory', 0)->get(),
             "historyAdmin" => ItemRequest::where('isHistory', 1)->get(),
             "historyUser" => ItemRequest::where([

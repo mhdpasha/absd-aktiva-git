@@ -1,3 +1,8 @@
+// Date
+let tanggal = new Date().getDate()
+let bulan = new Date().getMonth()
+let tahun = new Date().getFullYear()
+
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
   $('#dataTable').DataTable({
@@ -14,6 +19,7 @@ $(document).ready(function() {
           {
             extend: 'print',
             text: 'Print',
+            title: document.title + ` | ${tanggal}-${bulan}-${tahun} `,
             className: 'btn btn-sm btn-primary',
             exportOptions: {
               columns: 'th:not(:last-child)'
@@ -22,6 +28,7 @@ $(document).ready(function() {
           {
             extend: 'excel',
             text: 'Excel',
+            title: document.title + ` | ${tanggal}-${bulan}-${tahun} `,
             className: 'btn btn-sm btn-success',
             exportOptions: {
               columns: 'th:not(:last-child)'
@@ -30,6 +37,7 @@ $(document).ready(function() {
           {
             extend: 'pdf',
             text: 'PDF',
+            title: document.title + ` | ${tanggal}-${bulan}-${tahun} `,
             className: 'btn btn-sm btn-danger',
             exportOptions: {
               columns: 'th:not(:last-child)'
@@ -57,13 +65,11 @@ $(document).ready(function() {
       [ 10, 25, 50, -1 ],
       [ '10 rows', '25 rows', '50 rows', 'Show all' ]
     ],
-    // columnDefs: [
-    //   { "searchable": false, "targets": 6 }
-    // ],
         buttons: [
           {
             extend: 'print',
             text: 'Print',
+            title: document.title + ` | ${tanggal}-${bulan}-${tahun} `,
             className: 'btn btn-sm btn-primary',
             exportOptions: {
               columns: 'th:not(:last-child)'
@@ -72,6 +78,7 @@ $(document).ready(function() {
           {
             extend: 'excel',
             text: 'Excel',
+            title: document.title + ` | ${tanggal}-${bulan}-${tahun} `,
             className: 'btn btn-sm btn-success',
             exportOptions: {
               columns: 'th:not(:last-child)'
@@ -80,19 +87,12 @@ $(document).ready(function() {
           {
             extend: 'pdf',
             text: 'PDF',
+            title: document.title + ` | ${tanggal}-${bulan}-${tahun} `,
             className: 'btn btn-sm btn-danger',
             exportOptions: {
               columns: 'th:not(:last-child)'
             },
           },
-          // {
-          //   extend: 'csv',
-          //   text: 'CSV',
-          //   className: 'btn btn-sm btn-info',
-          //   exportOptions: {
-          //     columns: 'th:not(:last-child)'
-          //   },
-          // },
           {
             extend: 'pageLength',
             className: 'btn btn-sm btn-secondary',
@@ -117,6 +117,7 @@ $(document).ready(function() {
           {
             extend: 'print',
             text: 'Print',
+            title: document.title + ` | ${tanggal}-${bulan}-${tahun} `,
             className: 'btn btn-sm btn-primary',
             exportOptions: {
               columns: 'th:not(:last-child)'
@@ -125,6 +126,7 @@ $(document).ready(function() {
           {
             extend: 'excel',
             text: 'Excel',
+            title: document.title + ` | ${tanggal}-${bulan}-${tahun} `,
             className: 'btn btn-sm btn-success',
             exportOptions: {
               columns: 'th:not(:last-child)'
@@ -133,19 +135,12 @@ $(document).ready(function() {
           {
             extend: 'pdf',
             text: 'PDF',
+            title: document.title + ` | ${tanggal}-${bulan}-${tahun} `,
             className: 'btn btn-sm btn-danger',
             exportOptions: {
               columns: 'th:not(:last-child)'
             },
           },
-          // {
-          //   extend: 'csv',
-          //   text: 'CSV',
-          //   className: 'btn btn-sm btn-info',
-          //   exportOptions: {
-          //     columns: 'th:not(:last-child)'
-          //   },
-          // },
           {
             extend: 'pageLength',
             className: 'btn btn-sm btn-secondary',
@@ -168,26 +163,21 @@ $(document).ready(function() {
           {
             extend: 'print',
             text: 'Print',
+            title: document.title + ` | ${tanggal}-${bulan}-${tahun} `,
             className: 'btn btn-sm btn-primary',
           },
           {
             extend: 'excel',
             text: 'Excel',
+            title: document.title + ` | ${tanggal}-${bulan}-${tahun} `,
             className: 'btn btn-sm btn-success',
           },
           {
             extend: 'pdf',
             text: 'PDF',
+            title: document.title + ` | ${tanggal}-${bulan}-${tahun} `,
             className: 'btn btn-sm btn-danger',
           },
-          // {
-          //   extend: 'csv',
-          //   text: 'CSV',
-          //   className: 'btn btn-sm btn-info',
-          //   exportOptions: {
-          //     columns: 'th:not(:last-child)'
-          //   },
-          // },
           {
             extend: 'pageLength',
             className: 'btn btn-sm btn-secondary',

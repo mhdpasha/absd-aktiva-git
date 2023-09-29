@@ -183,9 +183,13 @@
                                 <div class="col">
                                     <label>Jenis Aset <span style="color: red;">*</span></label>
                                         <select class="form-select" name="itemcode" id="itemcode">
-                                                @foreach ($dataItem as $item)
-                                                    <option value="{{ $item->kodeAset." - ".$item->jenisAset }}">{{ $item->kodeAset." - ".$item->jenisAset }}</option>
-                                                @endforeach
+                                            @foreach ($ItemInventaris as $item)
+                                                <option value="{{ $item->kodeAset." - ".$item->jenisAset }}">{{ $item->kodeAset." - ".$item->jenisAset }}</option>
+                                            @endforeach
+                                                <option value="" selected> { ---------- SELECT ITEMCODE ---------- } </option>
+                                            @foreach ($ItemFurniture as $item)
+                                                <option value="{{ $item->kodeAset." - ".$item->jenisAset }}">{{ $item->kodeAset." - ".$item->jenisAset }}</option>
+                                            @endforeach
                                         </select>
                                 </div>
                             </section>
@@ -271,7 +275,11 @@
                                 <div class="col">
                                     <label>Jenis Aset <span style="color: red;">*</span></label>
                                         <select class="form-select" name="itemcode" id="itemcode">
-                                                @foreach ($dataItem as $item)
+                                                @foreach ($ItemInventaris as $item)
+                                                    <option value="{{ $item->kodeAset." - ".$item->jenisAset }}">{{ $item->kodeAset." - ".$item->jenisAset }}</option>
+                                                @endforeach
+                                                    <option value="" selected> { ------------------ SELECT ITEMCODE ------------------ } </option>
+                                                @foreach ($ItemFurniture as $item)
                                                     <option value="{{ $item->kodeAset." - ".$item->jenisAset }}">{{ $item->kodeAset." - ".$item->jenisAset }}</option>
                                                 @endforeach
                                         </select>

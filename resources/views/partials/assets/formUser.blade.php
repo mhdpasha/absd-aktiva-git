@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
             <h5 class="modal-title" id="exampleModalCenterTitle" style="padding-left: 10px;">Tambahkan User</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
@@ -38,6 +38,11 @@
                     <div>
                         <label for="kodeAset">Kode Cabang</label>
                         <select class="form-select" name="kode_cabang">
+                            <option value="503 - Head Office">503 - Head Office</option>
+                            <option value="531 - SBM Pekambaru">531 - SBM Pekambaru</option>
+                            <option value="532 - SBM Jambi">532 - SBM Jambi</option>
+                            <option value="533 - SBM Bali">533 - SBM Bali</option>
+                            <option value="534 - SBM Bengkulu">534 - SBM Bengkulu</option>
                             <option value="571A - OX Pekanbaru">571A - OX Pekanbaru</option>
                             <option value="572A - OX Denpasar">572A - OX Denpasar</option>
                             <option value="573A - OX Batam">573A - OX Batam</option>

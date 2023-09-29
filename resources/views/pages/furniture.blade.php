@@ -120,13 +120,13 @@
                                                             <div class="modal-body mb-1">
                                                                 @php
                                                                     $nomor_urut = (strlen(strval($loop->iteration)) < 2) ? "0{$loop->iteration}" : $loop->iteration;
-                                                                    $kode_cabang = $data->user?->kode_cabang;
+                                                                    $kode_cabang = explode(" - ",$data->user?->kode_cabang);
                                                                     $kategori_aset = explode(" ", $data->category);
                                                                     $departemen = ($data->user?->isAdmin == 1) ? "A" : "U";
                                                                     $jenis_aset = explode(" ", $data->itemcode);
                                                                     $tahun_perolehan = date('y', strtotime($data->date));
 
-                                                                    $displayData = "{$kode_cabang} {$kategori_aset[0]} {$departemen} {$jenis_aset[0]} {$tahun_perolehan} {$nomor_urut}";
+                                                                    $displayData = "{$kode_cabang[0]} {$kategori_aset[0]} {$departemen} {$jenis_aset[0]} {$tahun_perolehan} {$nomor_urut}";
                                                                 @endphp
                                                                 {{ QrCode::format('svg')->size(300)->generate($displayData) }}
                                                             </div>
