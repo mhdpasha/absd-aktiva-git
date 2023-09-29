@@ -19,21 +19,12 @@ class DatabaseSeeder extends Seeder
     {
         // Admin
         User::create([
-            'name' => 'Muhamad Pasha Albara',
-            'username' => 'pasha',
-            'email' => 'pasha@gmail.com',
+            'name' => 'Admin ABSD',
+            'username' => 'Admin',
+            'email' => 'admin@gmail.com',
             'isAdmin' => 1,
-            'kode_cabang' => '571A - OX Pekanbaru',
-            'password' => bcrypt('pasha123')
-        ]);
-        // User
-        User::create([
-            'name' => 'Muhamad Hanafi',
-            'username' => 'napi',
-            'email' => 'napi@gmail.com',
-            'isAdmin' => 0,
-            'kode_cabang' => '572A - OX Denpasar',
-            'password' => bcrypt('napi123')
+            'kode_cabang' => '503 - Head Office',
+            'password' => bcrypt('adminabsd123')
         ]);
 
         // Itemcode Inventaris
