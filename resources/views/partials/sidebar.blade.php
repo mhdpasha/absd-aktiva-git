@@ -14,16 +14,16 @@
     <hr class="sidebar-divider">
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item {{ ($title === "Inventaris" || $title === "Furniture") ? 'active' : '' }}">
+    <li class="nav-item {{ ($title === "Inventaris Kantor" || $title === "Furniture & Fixture") ? 'active' : '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>
             <span>Aset</span>
         </a>
-        <div id="collapseTwo" class="collapse {{ ($title === "Inventaris" || $title === "Furniture") ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse {{ ($title === "Inventaris Kantor" || $title === "Furniture & Fixture") ? 'show' : '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item {{ ($title === "Inventaris") ? 'active' : '' }}" href="{{ url("/aset/inventaris") }}">Inventaris Kantor</a>
-                <a class="collapse-item {{ ($title === "Furniture") ? 'active' : '' }}" href="{{ url("/aset/furniture") }}">Furniture & Fixture</a>
+                <a class="collapse-item {{ ($title === "Inventaris Kantor") ? 'active' : '' }}" href="{{ url("/aset/inventaris") }}">Inventaris Kantor</a>
+                <a class="collapse-item {{ ($title === "Furniture & Fixture") ? 'active' : '' }}" href="{{ url("/aset/furniture") }}">Furniture & Fixture</a>
             </div>
         </div>
     </li>
