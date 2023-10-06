@@ -31,8 +31,8 @@
 
 
                     <select class="form-control" name="isFurniture" id="isFurniture" hidden>
-                        <option value="1" {{ ($title === "Furniture") ? 'selected' : '' }}>Furniture</option>
-                        <option value="0" {{ ($title === "Inventaris") ? 'selected' : '' }}>Inventaris</option>
+                        <option value="1" {{ ($title === "Furniture & Fixture") ? 'selected' : '' }}>Furniture</option>
+                        <option value="0" {{ ($title === "Inventaris Kantor") ? 'selected' : '' }}>Inventaris</option>
                     </select>
 
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -45,8 +45,8 @@
                         <option value="G - Gedung & Bangunan">G - Gedung & Bangunan</option>
                         <option value="K - KBM Operasional">K - KBM Operasional</option>
                         <option value="P - Peralatan & Perlengkapan">P - Peralatan & Perlengkapan</option>
-                        <option value="I - Inventaris Kantor" {{ ($title === "Inventaris") ? 'selected' : '' }}>I - Inventaris Kantor</option>
-                        <option value="F - Furniture & Fixture" {{ ($title === "Furniture") ? 'selected' : '' }}>F - Furniture & Fixture</option>
+                        <option value="I - Inventaris Kantor" {{ ($title === "Inventaris Kantor") ? 'selected' : '' }}>I - Inventaris Kantor</option>
+                        <option value="F - Furniture & Fixture" {{ ($title === "Furniture & Fixture") ? 'selected' : '' }}>F - Furniture & Fixture</option>
                         <option value="T - Tower & Fascia">T - Tower & Fascia</option>
                     </select>
                 </div>
