@@ -13,7 +13,7 @@
                 <div class="form-group">
                     <label for="exampleInputCodeBarang">Jenis Aset <span style="color: red;">*</span></label>
                     <select class="form-select" name="itemcode" id="itemcode">
-                        @if ($title == "Inventaris")
+                        @if ($title == "Inventaris Kantor")
                             @foreach ($itemInventaris as $item)
                                 <option value="{{ $item->kodeAset." - ".$item->jenisAset }}">{{ $item->kodeAset." - ".$item->jenisAset }}</option>
                             @endforeach
